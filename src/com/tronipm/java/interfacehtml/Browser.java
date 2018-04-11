@@ -42,7 +42,7 @@ public class Browser {
 		b.get(url1);
 
 		// 3. Construct above post's content and then send a POST request for authentication
-		Parameter[] p = new Parameter[] {new Parameter("log", "pmateus"), new Parameter("pwd", "kkkkkkk")};
+		Parameter[] p = new Parameter[] {new Parameter("log", "pmateus"), new Parameter("pwd", "120593")};
 		String a1 = b.post(url1, p);
 
 		// 4. success then go to logged page.

@@ -16,11 +16,27 @@ import com.tronipm.java.interfacehtml.Parameter;
  *
  */
 public class Correios {
-	public ArrayList<Endereco> enderecos;
+	private ArrayList<Endereco> enderecos = null;
+	private boolean isValid = false;
 	private static final String diferenciador = "tmptabela";
 	private static final String placeholder = "NULL";
-
 	private static final String parametro_CEP = "relaxation", parametro_TIPO = "tipoCEP";
+
+	public ArrayList<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	//	public void setEnderecos(ArrayList<Endereco> enderecos) {
+	//		this.enderecos = enderecos;
+	//	}
+
+	public boolean isValid() {
+		return isValid;
+	}
+
+	//	public void setValid(boolean isValid) {
+	//		this.isValid = isValid;
+	//	}
 
 	public Correios(String cep) {
 		String url1 = "http://www.buscacep.correios.com.br/sistemas/buscacep/resultadoBuscaCepEndereco.cfm";
@@ -71,18 +87,23 @@ public class Correios {
 
 				enderecos.add(e);
 			}
+			isValid = true;
 		} else {
+			isValid = false;
 			enderecos = null;
 		}
 	}
 
 	public static void main(String[] args) {
-		// ArrayList<Endereco> end = new Correios("25 de marco").enderecos;
-		ArrayList<Endereco> end = new Correios("55295555").enderecos;
+		Correios c = new Correios("25 de marco");
+		//Correios c = new Correios("55295555");
 
-		System.out.println("\n----ENCONTRADOS (" + end.size() + ")----");
-		for(Endereco in : end) {
-			System.out.println(in);
+		if(c.isValid()) {
+			ArrayList<Endereco> end = c.getEnderecos();
+			System.out.println("\n----ENCONTRADOS (" + end.size() + ")----");
+			for(Endereco in : end) {
+				System.out.println(in);
+			}
 		}
 	}
 }
