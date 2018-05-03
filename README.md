@@ -35,22 +35,3 @@ You can use these classes to submit simple post/get requests without libs like [
 
    [Selenium]: <https://mvnrepository.com/artifact/org.seleniumhq.selenium>
    [HtmlUnit]: <https://mvnrepository.com/artifact/net.sourceforge.htmlunit>
-
-# Extrator de cep e endereço correios JAVA
-
-Para extrair dados do site dos Correios utilizar apenas:
-
-```JAVA
-	public static void main(String[] args) {
-		Correios c = new Correios("25 de marco");
-		//Correios c = new Correios("55295555");
-
-		if(c.isValid()) {
-			ArrayList<Endereco> end = c.getEnderecos();
-			System.out.println("\n----ENCONTRADOS (" + end.size() + ")----");
-			for(Endereco in : end) {
-				System.out.println(in);
-			}
-		}
-	}
-```
