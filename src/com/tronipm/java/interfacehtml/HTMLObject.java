@@ -132,7 +132,7 @@ public class HTMLObject {
 		}
 
 		//Ordering by start tag line
-		Collections.sort(allObjects, new ComparadorCrescente());
+		Collections.sort(allObjects, new ComparatorAsc());
 
 		//Giving childrens
 		for(int i = allObjects.size()-1; i >= 0; i--) {
@@ -154,7 +154,7 @@ public class HTMLObject {
 						allObjects.get(i).addChildren(allObjects.get(j));
 
 						//Ordering childrens at every moment
-						Collections.sort(allObjects.get(i).getChildrens(), new ComparadorCrescente());
+						Collections.sort(allObjects.get(i).getChildrens(), new ComparatorAsc());
 					}
 				}
 		}
